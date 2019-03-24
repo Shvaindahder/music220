@@ -14,7 +14,7 @@ def registration():
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('main.index'))
-    return render_template('auth/registration.html', title='Sign In')
+    return render_template('auth/registration.html', title='Registration', form=form)
 
 
 @bp.route('/login', methods=['GET', 'POST'])
