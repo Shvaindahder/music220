@@ -1,0 +1,5 @@
+.*
+!.gitignore
+logfile
+venv
+__pyc*__

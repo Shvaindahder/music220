@@ -1,0 +1,55 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    {% if title %}
+        {{ title }} - Music 220
+    {% else %}
+        Welcome to Music 220
+    {% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-expand-md">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="{{ url_for('main.index') }}" class="navbar-brand">Music220</a>
+            </div>
+            {% if not request.path == '/login' %}
+            <div class="navbar-collapse collapse">
+                <form action="{{ url_for('auth.nav_login') }}" class="navbar-form navbar-right" method="POST">
+                    <div class="form-group">
+                        <input name="username" type="text" placeholder="username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input name="password" type="password" placeholder="Пароль" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Вход</button>
+                    </div>
+                </form>
+            </div>
+            {% elif request.path == '/login' %}
+            <div class="navbar-collapse navbar-form navbar-right collapse">
+
+                    <a class="btn btn-success" href="{{ url_for('auth.registration') }}">Регистрация</a>
+
+            </div>
+            {% endif %}
+        </div>
+    </nav>
+    <br><br><br>
+{% endblock %}
+
+{% block content %}
+    {% block app_content %}
+
+    {% endblock %}
+{% endblock %}
+
+
+

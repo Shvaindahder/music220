@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block app_content %}
+    <div class="row">
+        <div class="col-md-offset-1 col-md-4">
+            <h1>Sign In</h1>
+            {{ wtf.quick_form(form) }}
+        </div>
+        <div class="col-md-offset-2 col-md-3">
+            <img src="{{ url_for('static', filename='images/abcd_music.png') }}" height="300px">
+        </div>
+    </div>
+{% endblock %}
